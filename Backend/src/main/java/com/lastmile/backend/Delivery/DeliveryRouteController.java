@@ -1,3 +1,5 @@
+
+ 
 package com.lastmile.backend.delivery;
 
 import java.util.Map;
@@ -17,7 +19,6 @@ public class DeliveryRouteController {
 
     public DeliveryRouteController(
             DeliveryRouteService service) {
-
         this.service = service;
     }
 
@@ -29,17 +30,40 @@ public class DeliveryRouteController {
                 service.saveRoute(request);
 
         return Map.of(
-                "routeId",
-                savedRoute.getId(),
-                "status",
-                savedRoute.getStatus()
+                "routeId", savedRoute.getId(),
+                "status", savedRoute.getStatus()
         );
     }
 
     @GetMapping("/{id}")
-    public DeliveryRoute getRoute(
+    public DeliveryRouteResponse getRoute(
             @PathVariable Long id) {
 
-        return service.getRouteById(id);
+        DeliveryRoute route = service.getRouteById(id);
+
+        var stops = route.getStops().stream()
+                .map(stop ->
+                        new DeliveryRouteResponse.DeliveryStopResponse(
+                                stop.getId(),
+                                stop.getStopOrder(),
+                                stop.getCustomerName(),
+                                stop.getAddress(),
+                                stop.getLatitude(),
+                                stop.getLongitude(),
+                                stop.getStatus()
+                        )
+                ).toList();
+
+        return new DeliveryRouteResponse(
+                route.getId(),
+                route.getCreatedAt(),
+                route.getTotalDistanceKm(),
+                route.getTotalTimeMinutes(),
+                route.getStatus(),
+                route.getWarehouseAddress(),
+                route.getWarehouseLatitude(),
+                route.getWarehouseLongitude(),
+                stops
+        );
     }
 }
