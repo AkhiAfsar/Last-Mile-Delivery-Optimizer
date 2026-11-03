@@ -1,3 +1,4 @@
+
 package com.lastmile.backend.delivery;
 
 import org.springframework.stereotype.Service;
@@ -41,7 +42,6 @@ public class DeliveryRouteService {
 
         route.setStatus("READY");
 
-
         if (request.getStops() != null) {
 
             for (
@@ -74,12 +74,21 @@ public class DeliveryRouteService {
 
                 stop.setStatus("PENDING");
 
-
                 route.addStop(stop);
             }
         }
 
-
         return repository.save(route);
+    }
+
+    // Fetch delivery route by ID
+    public DeliveryRoute getRouteById(Long id) {
+
+        return repository.findById(id)
+                .orElseThrow(() ->
+                    new RuntimeException(
+                        "Route not found with ID: " + id
+                    )
+                );
     }
 }
