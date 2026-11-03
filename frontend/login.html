@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Login | Last-Mile Delivery Optimizer
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="login.css"
+    >
+</head>
+
+
+<body>
+
+    <div class="login-page">
+
+
+        <!-- LEFT SIDE -->
+
+        <section class="brand-section">
+
+            <div class="brand-content">
+
+                <div class="logo">
+                    🚚
+                </div>
+
+                <h1>
+                    Last-Mile Delivery Optimizer
+                </h1>
+
+                <p>
+                    Plan smarter delivery routes,
+                    reduce unnecessary travel,
+                    and improve your last-mile
+                    delivery operations.
+                </p>
+
+
+                <div class="features">
+
+                    <div class="feature">
+                        ✓ Smart route optimization
+                    </div>
+
+                    <div class="feature">
+                        ✓ Interactive delivery map
+                    </div>
+
+                    <div class="feature">
+                        ✓ Address search & location selection
+                    </div>
+
+                    <div class="feature">
+                        ✓ Distance calculation
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- RIGHT SIDE -->
+
+        <section class="login-section">
+
+            <div class="login-card">
+
+                <div class="mobile-logo">
+                    🚚
+                </div>
+
+
+                <h2>
+                    Welcome Back
+                </h2>
+
+                <p class="subtitle">
+                    Sign in to continue to your delivery dashboard.
+                </p>
+
+
+                <form id="loginForm">
+
+
+                    <!-- EMAIL -->
+
+                    <div class="input-group">
+
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="input-group">
+
+                        <div class="password-heading">
+
+                            <label for="password">
+                                Password
+                            </label>
+
+                            <a
+                                href="#"
+                                class="forgot-link"
+                            >
+                                Forgot Password?
+                            </a>
+
+                        </div>
+
+
+                        <div class="password-wrapper">
+
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                id="togglePassword"
+                                class="password-toggle"
+                                aria-label="Show password"
+                            >
+                                👁
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- REMEMBER -->
+
+                    <div class="remember-section">
+
+                        <label class="remember-label">
+
+                            <input
+                                type="checkbox"
+                                id="rememberMe"
+                            >
+
+                            Remember me
+
+                        </label>
+
+                    </div>
+
+
+
+                    <!-- ERROR MESSAGE -->
+
+                    <div
+                        id="loginMessage"
+                        class="message"
+                    >
+                    </div>
+
+
+
+                    <!-- LOGIN BUTTON -->
+
+                    <button
+                        type="submit"
+                        id="loginBtn"
+                        class="login-btn"
+                    >
+                        Sign In
+                    </button>
+
+
+                </form>
+
+
+
+                <!-- REGISTER -->
+
+                <p class="register-text">
+
+                    Don't have an account?
+
+                    <a href="register.html">
+                        Create Account
+                    </a>
+
+                </p>
+
+
+                <div class="back-home">
+
+                    <a href="index.html">
+                        ← Back to Home
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <script src="login.js"></script>
+
+</body>
+
+</html>

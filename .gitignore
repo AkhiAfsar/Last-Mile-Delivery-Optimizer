@@ -1,0 +1,14 @@
+.vscode/
+
+Backend/target/
+target/
+*.class
+
+frontend/config.js
+.env
+*.env
+
+*.log
+
+.DS_Store
+Thumbs.db

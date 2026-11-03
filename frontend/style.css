@@ -1,0 +1,2666 @@
+/* ==========================================================
+   LAST-MILE DELIVERY OPTIMIZER
+   PROFESSIONAL LOGISTICS DASHBOARD
+   ========================================================== */
+
+
+/* ==========================================
+   1. THEME
+========================================== */
+
+:root {
+
+    --background:
+        #f4f6f8;
+
+    --surface:
+        #ffffff;
+
+    --surface-soft:
+        #f8fafc;
+
+    --text:
+        #111827;
+
+    --text-secondary:
+        #64748b;
+
+    --text-light:
+        #94a3b8;
+
+    --border:
+        #e2e8f0;
+
+    --primary:
+        #2563eb;
+
+    --primary-dark:
+        #1d4ed8;
+
+    --primary-soft:
+        #eff6ff;
+
+    --success:
+        #16a34a;
+
+    --success-soft:
+        #ecfdf5;
+
+    --orange:
+        #f97316;
+
+    --danger:
+        #dc2626;
+
+    --danger-soft:
+        #fef2f2;
+
+    --shadow:
+        0 8px 24px
+        rgba(15, 23, 42, 0.06);
+
+}
+
+
+/* ==========================================
+   2. RESET
+========================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    background:
+        var(--background);
+
+    color:
+        var(--text);
+
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
+    font-size: 14px;
+
+    -webkit-font-smoothing:
+        antialiased;
+
+}
+
+
+button,
+input {
+
+    font:
+        inherit;
+
+}
+
+
+button {
+
+    cursor:
+        pointer;
+
+}
+
+
+button:disabled {
+
+    opacity:
+        0.55;
+
+    cursor:
+        not-allowed;
+
+}
+
+
+/* ==========================================
+   3. TOP NAVIGATION
+========================================== */
+
+.topbar {
+
+    height:
+        70px;
+
+    padding:
+        0 clamp(
+            20px,
+            3vw,
+            50px
+        );
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        24px;
+
+    background:
+        white;
+
+    border-bottom:
+        1px solid
+        var(--border);
+
+}
+
+
+.brand {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+}
+
+
+.brand-icon {
+
+    width:
+        42px;
+
+    height:
+        42px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        var(--primary);
+
+    border-radius:
+        10px;
+
+    color:
+        white;
+
+    font-size:
+        20px;
+
+}
+
+
+.brand h1 {
+
+    margin:
+        0;
+
+    font-size:
+        17px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        -0.02em;
+
+}
+
+
+.brand p {
+
+    margin:
+        2px 0 0;
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        11px;
+
+}
+
+
+.topbar-right {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        20px;
+
+}
+
+
+.online-status {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        12px;
+
+    font-weight:
+        600;
+
+}
+
+
+.online-status span {
+
+    width:
+        8px;
+
+    height:
+        8px;
+
+    background:
+        #22c55e;
+
+    border-radius:
+        50%;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(
+            34,
+            197,
+            94,
+            0.12
+        );
+
+}
+
+
+.topbar-action {
+
+    padding:
+        10px 16px;
+
+    background:
+        var(--primary);
+
+    color:
+        white;
+
+    text-decoration:
+        none;
+
+    border-radius:
+        8px;
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+    transition:
+        background 0.2s ease;
+
+}
+
+
+.topbar-action:hover {
+
+    background:
+        var(--primary-dark);
+
+}
+
+
+/* ==========================================
+   4. MAIN APP
+========================================== */
+
+.app {
+
+    width:
+        calc(100% - 40px);
+
+    max-width:
+        1650px;
+
+    margin:
+        0 auto;
+
+    padding:
+        32px 0 50px;
+
+}
+
+
+/* ==========================================
+   5. PAGE HEADING
+========================================== */
+
+.page-heading {
+
+    margin-bottom:
+        24px;
+
+    display:
+        flex;
+
+    align-items:
+        flex-end;
+
+    justify-content:
+        space-between;
+
+    gap:
+        30px;
+
+}
+
+
+.eyebrow {
+
+    margin:
+        0 0 6px;
+
+    color:
+        var(--primary);
+
+    font-size:
+        10px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.12em;
+
+}
+
+
+.page-heading h2 {
+
+    margin:
+        0;
+
+    font-size:
+        clamp(
+            26px,
+            3vw,
+            38px
+        );
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        -0.04em;
+
+}
+
+
+.heading-description {
+
+    max-width:
+        620px;
+
+    margin:
+        10px 0 0;
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        13px;
+
+    line-height:
+        1.6;
+
+}
+
+
+.technology-badge {
+
+    padding:
+        10px 13px;
+
+    border:
+        1px solid
+        var(--border);
+
+    background:
+        white;
+
+    border-radius:
+        8px;
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        11px;
+
+    font-weight:
+        600;
+
+    white-space:
+        nowrap;
+
+}
+
+
+/* ==========================================
+   6. MAIN PLANNER GRID
+========================================== */
+
+.planner-layout {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        clamp(
+            310px,
+            27vw,
+            380px
+        )
+        minmax(
+            0,
+            1fr
+        );
+
+    gap:
+        18px;
+
+    align-items:
+        start;
+
+}
+
+
+/* ==========================================
+   7. LEFT CONTROL PANEL
+========================================== */
+
+.control-panel {
+
+    padding:
+        18px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        16px;
+
+    background:
+        white;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        14px;
+
+    box-shadow:
+        var(--shadow);
+
+}
+
+
+.control-section {
+
+    padding-bottom:
+        16px;
+
+    border-bottom:
+        1px solid
+        var(--border);
+
+}
+
+
+.section-title {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+}
+
+
+.section-number {
+
+    width:
+        30px;
+
+    height:
+        30px;
+
+    flex:
+        0 0 auto;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        var(--primary-soft);
+
+    color:
+        var(--primary);
+
+    border-radius:
+        8px;
+
+    font-size:
+        12px;
+
+    font-weight:
+        800;
+
+}
+
+
+.section-title h3 {
+
+    margin:
+        0;
+
+    font-size:
+        14px;
+
+    font-weight:
+        750;
+
+}
+
+
+.section-title p {
+
+    margin:
+        2px 0 0;
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        10px;
+
+}
+
+
+/* ==========================================
+   8. FORM CONTROLS
+========================================== */
+
+.form-group {
+
+    margin-top:
+        14px;
+
+}
+
+
+.form-group label {
+
+    display:
+        block;
+
+    margin-bottom:
+        6px;
+
+    color:
+        #475569;
+
+    font-size:
+        11px;
+
+    font-weight:
+        600;
+
+}
+
+
+input[type="text"] {
+
+    width:
+        100%;
+
+    height:
+        42px;
+
+    padding:
+        0 12px;
+
+    outline:
+        none;
+
+    background:
+        white;
+
+    border:
+        1px solid
+        #cbd5e1;
+
+    border-radius:
+        8px;
+
+    color:
+        var(--text);
+
+    font-size:
+        12px;
+
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+
+}
+
+
+input[type="text"]::placeholder {
+
+    color:
+        #94a3b8;
+
+}
+
+
+input[type="text"]:focus {
+
+    border-color:
+        var(--primary);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(
+            37,
+            99,
+            235,
+            0.10
+        );
+
+}
+
+
+/* ==========================================
+   9. AUTOCOMPLETE
+========================================== */
+
+.search-wrapper {
+
+    position:
+        relative;
+
+}
+
+
+.suggestions {
+
+    position:
+        absolute;
+
+    z-index:
+        9999;
+
+    top:
+        calc(100% + 5px);
+
+    left:
+        0;
+
+    right:
+        0;
+
+    max-height:
+        220px;
+
+    overflow-y:
+        auto;
+
+    background:
+        white;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        8px;
+
+    box-shadow:
+        0 14px 30px
+        rgba(
+            15,
+            23,
+            42,
+            0.14
+        );
+
+}
+
+
+.suggestions:empty {
+
+    display:
+        none;
+
+}
+
+
+.suggestion-item {
+
+    padding:
+        10px 12px;
+
+    border-bottom:
+        1px solid
+        #f1f5f9;
+
+    cursor:
+        pointer;
+
+}
+
+
+.suggestion-item:last-child {
+
+    border-bottom:
+        none;
+
+}
+
+
+.suggestion-item:hover {
+
+    background:
+        #f8fafc;
+
+}
+
+
+.suggestion-main {
+
+    color:
+        var(--text);
+
+    font-size:
+        11px;
+
+    font-weight:
+        600;
+
+}
+
+
+.suggestion-secondary {
+
+    margin-top:
+        3px;
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        9px;
+
+}
+
+
+.search-message {
+
+    padding:
+        12px;
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        10px;
+
+}
+
+
+/* ==========================================
+   10. LOCATION INFO
+========================================== */
+
+.location-info {
+
+    min-height:
+        18px;
+
+    margin-top:
+        7px;
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        10px;
+
+    line-height:
+        1.5;
+
+    word-break:
+        break-word;
+
+}
+
+
+/* ==========================================
+   11. BUTTONS
+========================================== */
+
+.outline-button {
+
+    width:
+        100%;
+
+    min-height:
+        38px;
+
+    margin-top:
+        9px;
+
+    padding:
+        8px 12px;
+
+    border:
+        1px solid
+        #cbd5e1;
+
+    border-radius:
+        8px;
+
+    background:
+        white;
+
+    color:
+        #334155;
+
+    font-size:
+        11px;
+
+    font-weight:
+        650;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease;
+
+}
+
+
+.outline-button:hover {
+
+    background:
+        #f8fafc;
+
+    border-color:
+        #94a3b8;
+
+}
+
+
+.primary-button {
+
+    width:
+        100%;
+
+    min-height:
+        41px;
+
+    margin-top:
+        10px;
+
+    border:
+        none;
+
+    border-radius:
+        8px;
+
+    background:
+        var(--primary);
+
+    color:
+        white;
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+
+}
+
+
+.primary-button:hover {
+
+    background:
+        var(--primary-dark);
+
+}
+
+
+/* ==========================================
+   12. CSV
+========================================== */
+
+.csv-section {
+
+    padding:
+        13px;
+
+    background:
+        var(--surface-soft);
+
+    border:
+        1px dashed
+        #cbd5e1;
+
+    border-radius:
+        10px;
+
+}
+
+
+.csv-header {
+
+    margin-bottom:
+        10px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+}
+
+
+.csv-header > div {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+}
+
+
+.csv-header strong {
+
+    font-size:
+        11px;
+
+}
+
+
+.csv-header span {
+
+    margin-top:
+        2px;
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        9px;
+
+}
+
+
+.file-picker {
+
+    min-height:
+        38px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        8px;
+
+    background:
+        white;
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        10px;
+
+    font-weight:
+        600;
+
+    cursor:
+        pointer;
+
+}
+
+
+.file-picker input {
+
+    display:
+        none;
+
+}
+
+
+.import-button {
+
+    width:
+        100%;
+
+    min-height:
+        36px;
+
+    margin-top:
+        7px;
+
+    border:
+        none;
+
+    border-radius:
+        8px;
+
+    background:
+        #e2e8f0;
+
+    color:
+        #334155;
+
+    font-size:
+        10px;
+
+    font-weight:
+        650;
+
+}
+
+
+.import-button:hover {
+
+    background:
+        #cbd5e1;
+
+}
+
+
+.csv-status {
+
+    margin:
+        7px 0 0;
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        9px;
+
+}
+
+
+/* ==========================================
+   13. DELIVERY STOPS
+========================================== */
+
+.stops-heading {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        10px;
+
+}
+
+
+.clear-button {
+
+    padding:
+        7px 10px;
+
+    border:
+        none;
+
+    border-radius:
+        7px;
+
+    background:
+        var(--danger-soft);
+
+    color:
+        var(--danger);
+
+    font-size:
+        9px;
+
+    font-weight:
+        700;
+
+}
+
+
+.customer-list {
+
+    max-height:
+        250px;
+
+    margin-top:
+        12px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        7px;
+
+    overflow-y:
+        auto;
+
+}
+
+
+.empty-message {
+
+    margin:
+        6px 0;
+
+    color:
+        var(--text-light);
+
+    font-size:
+        10px;
+
+}
+
+
+/* JS generated customer rows */
+
+.customer-row,
+.customer-item {
+
+    padding:
+        10px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        10px;
+
+    background:
+        #f8fafc;
+
+    border:
+        1px solid
+        #e2e8f0;
+
+    border-radius:
+        8px;
+
+}
+
+
+.customer-details {
+
+    min-width:
+        0;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        2px;
+
+}
+
+
+.customer-details strong {
+
+    font-size:
+        10px;
+
+}
+
+
+.customer-address {
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        9px;
+
+    line-height:
+        1.4;
+
+}
+
+
+.customer-coordinate {
+
+    color:
+        var(--text-light);
+
+    font-size:
+        8px;
+
+}
+
+
+.remove-customer {
+
+    flex:
+        0 0 auto;
+
+    padding:
+        6px 8px;
+
+    border:
+        none;
+
+    border-radius:
+        6px;
+
+    background:
+        var(--danger-soft);
+
+    color:
+        var(--danger);
+
+    font-size:
+        8px;
+
+    font-weight:
+        700;
+
+}
+
+
+/* ==========================================
+   14. OPTIMIZE BUTTON
+========================================== */
+
+.optimize-button {
+
+    width:
+        100%;
+
+    min-height:
+        48px;
+
+    border:
+        none;
+
+    border-radius:
+        9px;
+
+    background:
+        var(--primary);
+
+    color:
+        white;
+
+    font-size:
+        12px;
+
+    font-weight:
+        750;
+
+    box-shadow:
+        0 6px 14px
+        rgba(
+            37,
+            99,
+            235,
+            0.18
+        );
+
+    transition:
+        background 0.15s ease,
+        transform 0.15s ease;
+
+}
+
+
+.optimize-button:hover {
+
+    background:
+        var(--primary-dark);
+
+    transform:
+        translateY(-1px);
+
+}
+
+
+/* ==========================================
+   15. SEND TO DRIVER
+========================================== */
+
+.send-driver-button {
+
+    width:
+        100%;
+
+    min-height:
+        45px;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        none;
+
+    border-radius:
+        9px;
+
+    background:
+        #15803d;
+
+    color:
+        white;
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+
+}
+
+
+.send-driver-button:hover {
+
+    background:
+        #166534;
+
+}
+
+
+.driver-route-status {
+
+    min-height:
+        16px;
+
+    margin:
+        -7px 0 0;
+
+    text-align:
+        center;
+
+    color:
+        var(--success);
+
+    font-size:
+        9px;
+
+    font-weight:
+        600;
+
+}
+
+
+/* ==========================================
+   16. RIGHT WORKSPACE
+========================================== */
+
+.workspace {
+
+    min-width:
+        0;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        14px;
+
+}
+
+
+/* ==========================================
+   17. MAP CARD
+========================================== */
+
+.map-card {
+
+    overflow:
+        hidden;
+
+    background:
+        white;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        14px;
+
+    box-shadow:
+        var(--shadow);
+
+}
+
+
+.map-header {
+
+    min-height:
+        68px;
+
+    padding:
+        12px 16px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        20px;
+
+    border-bottom:
+        1px solid
+        var(--border);
+
+}
+
+
+.map-label {
+
+    margin:
+        0 0 3px;
+
+    color:
+        var(--primary);
+
+    font-size:
+        9px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.10em;
+
+}
+
+
+.map-header h3 {
+
+    margin:
+        0;
+
+    font-size:
+        15px;
+
+}
+
+
+.map-legend {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        14px;
+
+}
+
+
+.map-legend span {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        5px;
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        9px;
+
+}
+
+
+.warehouse-indicator,
+.stop-indicator {
+
+    width:
+        8px;
+
+    height:
+        8px;
+
+    display:
+        inline-block;
+
+    border-radius:
+        50%;
+
+}
+
+
+.warehouse-indicator {
+
+    background:
+        #22c55e;
+
+}
+
+
+.stop-indicator {
+
+    background:
+        var(--orange);
+
+}
+
+
+.route-indicator {
+
+    width:
+        18px;
+
+    height:
+        3px;
+
+    display:
+        inline-block;
+
+    background:
+        var(--primary);
+
+    border-radius:
+        20px;
+
+}
+
+
+/* Main map */
+
+.map-container,
+#map {
+
+    width:
+        100%;
+
+    height:
+        clamp(
+            500px,
+            63vh,
+            720px
+        );
+
+    min-height:
+        500px;
+
+    background:
+        #e5e7eb;
+
+}
+
+
+#map {
+
+    z-index:
+        1;
+
+}
+
+
+.leaflet-container {
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+}
+
+
+/* ==========================================
+   18. ROUTE SUMMARY
+========================================== */
+
+.route-summary {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        220px
+        minmax(
+            0,
+            1fr
+        );
+
+    gap:
+        14px;
+
+}
+
+
+.summary-box,
+.route-result-box {
+
+    background:
+        white;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        12px;
+
+    box-shadow:
+        var(--shadow);
+
+}
+
+
+.summary-box {
+
+    min-height:
+        120px;
+
+    padding:
+        18px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        13px;
+
+}
+
+
+.summary-box-icon {
+
+    width:
+        42px;
+
+    height:
+        42px;
+
+    flex:
+        0 0 auto;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        var(--primary-soft);
+
+    border-radius:
+        10px;
+
+    font-size:
+        18px;
+
+}
+
+
+.summary-box > div:last-child {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+}
+
+
+.summary-box span {
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        10px;
+
+}
+
+
+.summary-box strong {
+
+    margin-top:
+        4px;
+
+    color:
+        var(--text);
+
+    font-size:
+        23px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        -0.04em;
+
+}
+
+
+/* Route result */
+
+.route-result-box {
+
+    min-height:
+        120px;
+
+    padding:
+        17px;
+
+}
+
+
+.route-result-header {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+}
+
+
+.route-result-header span {
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        8px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.10em;
+
+}
+
+
+.route-result-header h3 {
+
+    margin:
+        4px 0 0;
+
+    font-size:
+        13px;
+
+}
+
+
+.result-icon {
+
+    width:
+        30px;
+
+    height:
+        30px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        var(--success-soft);
+
+    color:
+        var(--success);
+
+    border-radius:
+        8px;
+
+    font-weight:
+        800;
+
+}
+
+
+.route-result {
+
+    margin-top:
+        12px;
+
+    color:
+        #475569;
+
+    font-size:
+        11px;
+
+    line-height:
+        1.6;
+
+    word-break:
+        break-word;
+
+}
+
+
+/* ==========================================
+   19. FLOW
+========================================== */
+
+.flow-card {
+
+    padding:
+        17px;
+
+    background:
+        white;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        12px;
+
+    box-shadow:
+        var(--shadow);
+
+}
+
+
+.flow-title span {
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        8px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.10em;
+
+}
+
+
+.flow-title h3 {
+
+    margin:
+        4px 0 0;
+
+    font-size:
+        13px;
+
+}
+
+
+.flow-steps {
+
+    margin-top:
+        15px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        12px;
+
+}
+
+
+.flow-step {
+
+    flex:
+        1;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        9px;
+
+}
+
+
+.flow-step b {
+
+    width:
+        29px;
+
+    height:
+        29px;
+
+    flex:
+        0 0 auto;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        var(--primary-soft);
+
+    color:
+        var(--primary);
+
+    border-radius:
+        8px;
+
+    font-size:
+        10px;
+
+}
+
+
+.flow-step div {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+}
+
+
+.flow-step strong {
+
+    font-size:
+        10px;
+
+}
+
+
+.flow-step small {
+
+    margin-top:
+        2px;
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        8px;
+
+}
+
+
+.flow-arrow {
+
+    color:
+        #cbd5e1;
+
+    font-size:
+        16px;
+
+}
+
+
+/* ==========================================
+   20. ROUTE MAP MARKERS
+========================================== */
+
+.route-stop-icon,
+.route-last-label-icon,
+.route-arrow-map-icon {
+
+    background:
+        transparent !important;
+
+    border:
+        none !important;
+
+}
+
+
+.route-number-marker {
+
+    width:
+        30px;
+
+    height:
+        30px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        var(--orange);
+
+    color:
+        white;
+
+    border:
+        2px solid
+        white;
+
+    border-radius:
+        5px;
+
+    box-shadow:
+        0 3px 7px
+        rgba(
+            0,
+            0,
+            0,
+            0.28
+        );
+
+    font-size:
+        12px;
+
+    font-weight:
+        800;
+
+}
+
+
+.route-start-marker {
+
+    width:
+        30px;
+
+    height:
+        30px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        var(--orange);
+
+    color:
+        white;
+
+    border:
+        2px solid
+        white;
+
+    border-radius:
+        5px;
+
+    box-shadow:
+        0 3px 7px
+        rgba(
+            0,
+            0,
+            0,
+            0.28
+        );
+
+    font-size:
+        17px;
+
+    font-weight:
+        900;
+
+}
+
+
+.route-last-label {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    min-width:
+        38px;
+
+    height:
+        17px;
+
+    padding:
+        0 5px;
+
+    background:
+        #111827;
+
+    color:
+        white;
+
+    border:
+        1px solid
+        white;
+
+    border-radius:
+        4px;
+
+    font-size:
+        7px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.06em;
+
+}
+
+
+.route-map-arrow {
+
+    width:
+        12px;
+
+    height:
+        12px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    color:
+        white;
+
+    font-size:
+        9px;
+
+    font-weight:
+        900;
+
+    line-height:
+        12px;
+
+    transform-origin:
+        center;
+
+    text-shadow:
+        0 1px 2px
+        rgba(
+            0,
+            0,
+            0,
+            0.8
+        );
+
+    pointer-events:
+        none;
+
+}
+
+
+/* ==========================================
+   21. SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar {
+
+    width:
+        7px;
+
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    background:
+        #cbd5e1;
+
+    border-radius:
+        20px;
+
+}
+
+
+/* ==========================================
+   22. LAPTOP
+========================================== */
+
+@media (
+    max-width: 1150px
+) {
+
+    .app {
+
+        width:
+            calc(
+                100% - 28px
+            );
+
+    }
+
+
+    .planner-layout {
+
+        grid-template-columns:
+            310px
+            minmax(
+                0,
+                1fr
+            );
+
+    }
+
+
+    .map-container,
+    #map {
+
+        height:
+            clamp(
+                450px,
+                60vh,
+                620px
+            );
+
+        min-height:
+            450px;
+
+    }
+
+}
+
+
+/* ==========================================
+   23. TABLET
+========================================== */
+
+@media (
+    max-width: 900px
+) {
+
+    .planner-layout {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .control-panel {
+
+        order:
+            2;
+
+    }
+
+
+    .workspace {
+
+        order:
+            1;
+
+    }
+
+
+    .map-container,
+    #map {
+
+        height:
+            500px;
+
+        min-height:
+            500px;
+
+    }
+
+
+    .route-summary {
+
+        grid-template-columns:
+            200px
+            1fr;
+
+    }
+
+}
+
+
+/* ==========================================
+   24. MOBILE
+========================================== */
+
+@media (
+    max-width: 650px
+) {
+
+    .topbar {
+
+        height:
+            62px;
+
+        padding:
+            0 14px;
+
+    }
+
+
+    .brand-icon {
+
+        width:
+            36px;
+
+        height:
+            36px;
+
+    }
+
+
+    .brand h1 {
+
+        font-size:
+            14px;
+
+    }
+
+
+    .brand p {
+
+        font-size:
+            9px;
+
+    }
+
+
+    .online-status {
+
+        display:
+            none;
+
+    }
+
+
+    .topbar-action {
+
+        padding:
+            8px 11px;
+
+        font-size:
+            10px;
+
+    }
+
+
+    .app {
+
+        width:
+            calc(
+                100% - 18px
+            );
+
+        padding-top:
+            22px;
+
+    }
+
+
+    .page-heading {
+
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+
+        gap:
+            12px;
+
+    }
+
+
+    .technology-badge {
+
+        white-space:
+            normal;
+
+    }
+
+
+    .map-header {
+
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+
+        gap:
+            8px;
+
+    }
+
+
+    .map-container,
+    #map {
+
+        height:
+            420px;
+
+        min-height:
+            420px;
+
+    }
+
+
+    .route-summary {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .summary-box {
+
+        min-height:
+            90px;
+
+    }
+
+
+    .flow-steps {
+
+        align-items:
+            stretch;
+
+        flex-direction:
+            column;
+
+    }
+
+
+    .flow-arrow {
+
+        align-self:
+            center;
+
+        transform:
+            rotate(
+                90deg
+            );
+
+    }
+
+}
+
+
+/* ==========================================
+   25. SMALL PHONE
+========================================== */
+
+@media (
+    max-width: 420px
+) {
+
+    .control-panel {
+
+        padding:
+            14px;
+
+    }
+
+
+    .map-container,
+    #map {
+
+        height:
+            360px;
+
+        min-height:
+            360px;
+
+    }
+
+
+    .page-heading h2 {
+
+        font-size:
+            27px;
+
+    }
+
+}

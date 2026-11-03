@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Last-Mile Delivery Optimizer</title>
+
+    <!-- Google Font -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Leaflet CSS -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+    <!-- Project CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+    <!-- =========================
+         TOP NAVBAR
+    ========================== -->
+
+    <header class="topbar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                🚚
+            </div>
+
+            <div>
+                <h1>
+                    Last-Mile
+                </h1>
+
+                <p>
+                    Delivery Optimizer
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="topbar-right">
+
+            <div class="online-status">
+                <span></span>
+                System Online
+            </div>
+
+            <a
+                href="#planner"
+                class="topbar-action"
+            >
+                Route Planner
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================
+         MAIN PAGE
+    ========================== -->
+
+    <main class="app">
+
+        <!-- =========================
+             PAGE HEADER
+        ========================== -->
+
+        <section class="page-heading">
+
+            <div>
+
+                <p class="eyebrow">
+                    DELIVERY MANAGEMENT
+                </p>
+
+                <h2>
+                    Plan your delivery route
+                </h2>
+
+                <p class="heading-description">
+                    Add delivery locations, optimize the order
+                    and generate an efficient road-based route
+                    for your driver.
+                </p>
+
+            </div>
+
+
+            <div class="technology-badge">
+                Java • Spring Boot • Geoapify • MySQL
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             PLANNER
+        ========================== -->
+
+        <section
+            class="planner-layout"
+            id="planner"
+        >
+
+
+            <!-- =========================
+                 LEFT CONTROL PANEL
+            ========================== -->
+
+            <aside class="control-panel">
+
+
+                <!-- =========================
+                     WAREHOUSE
+                ========================== -->
+
+                <section class="control-section">
+
+                    <div class="section-title">
+
+                        <div class="section-number">
+                            1
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Warehouse
+                            </h3>
+
+                            <p>
+                                Select the starting point
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group search-wrapper">
+
+                        <label for="warehouseSearch">
+                            Warehouse address
+                        </label>
+
+                        <input
+                            type="text"
+                            id="warehouseSearch"
+                            placeholder="Search warehouse location"
+                            autocomplete="off"
+                        >
+
+                        <div
+                            id="warehouseSuggestions"
+                            class="suggestions"
+                        ></div>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="warehouseBtn"
+                        class="outline-button"
+                    >
+                        📍 Select from map
+                    </button>
+
+
+                    <div
+                        id="warehouseInfo"
+                        class="location-info"
+                    >
+                        No warehouse selected
+                    </div>
+
+                </section>
+
+
+
+                <!-- =========================
+                     CUSTOMER
+                ========================== -->
+
+                <section class="control-section">
+
+                    <div class="section-title">
+
+                        <div class="section-number">
+                            2
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Add Customer
+                            </h3>
+
+                            <p>
+                                Add a delivery stop
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="customerName">
+                            Customer name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="customerName"
+                            placeholder="Enter customer name"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group search-wrapper">
+
+                        <label for="customerSearch">
+                            Delivery address
+                        </label>
+
+                        <input
+                            type="text"
+                            id="customerSearch"
+                            placeholder="Search delivery address"
+                            autocomplete="off"
+                        >
+
+                        <div
+                            id="customerSuggestions"
+                            class="suggestions"
+                        ></div>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="customerLocationBtn"
+                        class="outline-button"
+                    >
+                        📌 Select from map
+                    </button>
+
+
+                    <div
+                        id="customerLocationInfo"
+                        class="location-info"
+                    >
+                        No customer location selected
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="addCustomerBtn"
+                        class="primary-button"
+                    >
+                        + Add Delivery Stop
+                    </button>
+
+                </section>
+
+
+
+                <!-- =========================
+                     CSV IMPORT
+                ========================== -->
+
+                <section class="csv-section">
+
+                    <div class="csv-header">
+
+                        <div>
+
+                            <strong>
+                                Bulk Import
+                            </strong>
+
+                            <span>
+                                Add customers using CSV
+                            </span>
+
+                        </div>
+
+                        <span>
+                            📄
+                        </span>
+
+                    </div>
+
+
+                    <label
+                        for="csvFileInput"
+                        class="file-picker"
+                    >
+
+                        Choose CSV file
+
+                        <input
+                            type="file"
+                            id="csvFileInput"
+                            accept=".csv"
+                        >
+
+                    </label>
+
+
+                    <button
+                        type="button"
+                        id="importCsvBtn"
+                        class="import-button"
+                    >
+                        Import Customers
+                    </button>
+
+
+                    <p
+                        id="csvStatus"
+                        class="csv-status"
+                    ></p>
+
+                </section>
+
+
+
+                <!-- =========================
+                     DELIVERY STOPS
+                ========================== -->
+
+                <section class="control-section">
+
+                    <div class="stops-heading">
+
+                        <div class="section-title">
+
+                            <div class="section-number">
+                                3
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Delivery Stops
+                                </h3>
+
+                                <p>
+                                    Customers in this route
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            id="clearCustomersBtn"
+                            class="clear-button"
+                        >
+                            Clear
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        id="customerList"
+                        class="customer-list"
+                    >
+
+                        <p class="empty-message">
+                            No customers added yet.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =========================
+                     OPTIMIZE
+                ========================== -->
+
+                <button
+                    type="button"
+                    id="optimizeBtn"
+                    class="optimize-button"
+                >
+                    ⚡ Optimize Delivery Route
+                </button>
+
+
+                <!-- =========================
+                     SEND TO DRIVER
+                ========================== -->
+
+                <button
+                    type="button"
+                    id="sendToDriverBtn"
+                    class="send-driver-button"
+                    style="display: none;"
+                >
+                    🚚 Send Route to Driver
+                </button>
+
+
+                <p
+                    id="driverRouteStatus"
+                    class="driver-route-status"
+                ></p>
+
+            </aside>
+
+
+
+            <!-- =========================
+                 RIGHT WORKSPACE
+            ========================== -->
+
+            <section class="workspace">
+
+
+                <!-- =========================
+                     MAP
+                ========================== -->
+
+                <section class="map-card">
+
+                    <div class="map-header">
+
+                        <div>
+
+                            <p class="map-label">
+                                LIVE ROUTE
+                            </p>
+
+                            <h3>
+                                Delivery Map
+                            </h3>
+
+                        </div>
+
+
+                        <div class="map-legend">
+
+                            <span>
+                                <i class="warehouse-indicator"></i>
+                                Start
+                            </span>
+
+                            <span>
+                                <i class="stop-indicator"></i>
+                                Stops
+                            </span>
+
+                            <span>
+                                <i class="route-indicator"></i>
+                                Route
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="map"
+                        class="map-container"
+                    ></div>
+
+                </section>
+
+
+
+                <!-- =========================
+                     ROUTE SUMMARY
+                ========================== -->
+
+                <section class="route-summary">
+
+
+                    <!-- Distance -->
+
+                    <article class="summary-box distance-box">
+
+                        <div class="summary-box-icon">
+                            🛣️
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Total Distance
+                            </span>
+
+                            <strong
+                                id="distanceResult"
+                            >
+                                -- km
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- Route Result -->
+
+                    <article class="route-result-box">
+
+                        <div class="route-result-header">
+
+                            <div>
+
+                                <span>
+                                    OPTIMIZED ROUTE
+                                </span>
+
+                                <h3>
+                                    Delivery Sequence
+                                </h3>
+
+                            </div>
+
+
+                            <div class="result-icon">
+                                ✓
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            id="routeResult"
+                            class="route-result"
+                        >
+                            Optimize the route to see the
+                            delivery sequence.
+                        </div>
+
+                    </article>
+
+                </section>
+
+
+
+                <!-- =========================
+                     SYSTEM FLOW
+                ========================== -->
+
+                <section class="flow-card">
+
+                    <div class="flow-title">
+
+                        <span>
+                            ROUTE WORKFLOW
+                        </span>
+
+                        <h3>
+                            Delivery process
+                        </h3>
+
+                    </div>
+
+
+                    <div class="flow-steps">
+
+                        <div class="flow-step">
+                            <b>1</b>
+
+                            <div>
+                                <strong>
+                                    Add Stops
+                                </strong>
+
+                                <small>
+                                    Manual or CSV
+                                </small>
+                            </div>
+                        </div>
+
+
+                        <div class="flow-arrow">
+                            →
+                        </div>
+
+
+                        <div class="flow-step">
+                            <b>2</b>
+
+                            <div>
+                                <strong>
+                                    Optimize
+                                </strong>
+
+                                <small>
+                                    NN + 2-Opt
+                                </small>
+                            </div>
+                        </div>
+
+
+                        <div class="flow-arrow">
+                            →
+                        </div>
+
+
+                        <div class="flow-step">
+                            <b>3</b>
+
+                            <div>
+                                <strong>
+                                    Save Route
+                                </strong>
+
+                                <small>
+                                    MySQL
+                                </small>
+                            </div>
+                        </div>
+
+
+                        <div class="flow-arrow">
+                            →
+                        </div>
+
+
+                        <div class="flow-step">
+                            <b>4</b>
+
+                            <div>
+                                <strong>
+                                    Driver
+                                </strong>
+
+                                <small>
+                                    Route handoff
+                                </small>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- Leaflet -->
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    ></script>
+
+
+    <!-- Papa Parse -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"
+    ></script>
+
+
+  <!-- Local API configuration -->
+<script src="config.js"></script>
+
+<!-- Existing Project JavaScript -->
+<script src="script.js"></script>
+
+</body>
+
+</html>
