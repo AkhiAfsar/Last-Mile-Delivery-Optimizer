@@ -2638,7 +2638,9 @@ optimizeBtn.addEventListener(
 
                 await fetch(
 
-                    "http://localhost:8080/api/routing/optimize",
+                    "https://last-mile-delivery-optimizer.onrender.com/api/routing/optimize",
+
+                    
 
                     {
 
@@ -3112,8 +3114,8 @@ if (sendToDriverBtn) {
                 const response =
 
                     await fetch(
-
-                        "http://localhost:8080/api/delivery-routes",
+                                "https://last-mile-delivery-optimizer.onrender.com/api/delivery-routes",
+                        
 
                         {
 
